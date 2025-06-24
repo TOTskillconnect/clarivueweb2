@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+/* Tailwind CSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Clarivue Brand Font System */
+:root {
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-ui: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Performance optimizations */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'kern' 1;
+  font-kerning: normal;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Optimize for slow connections */
+.slow-connection {
+  /* Reduce animation complexity */
+  --animation-duration: 0.1s;
+}
+
+.slow-connection * {
+  animation-duration: var(--animation-duration) !important;
+  transition-duration: var(--animation-duration) !important;
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Optimize images for performance */
+img {
+  max-width: 100%;
+  height: auto;
+  image-rendering: optimizeQuality;
+}
+
+/* WebP support detection */
+.webp img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid #3182ce;
+  outline-offset: 2px;
+}
+
+/* Performance optimizations for animations */
+@keyframes float {
+  0% { transform: translate3d(0, 0, 0) rotate(-15deg); }
+  50% { transform: translate3d(0, -10px, 0) rotate(-12deg); }
+  100% { transform: translate3d(0, 0, 0) rotate(-15deg); }
+}
+
+/* Optimize will-change for animations */
+.animate-float {
+  will-change: transform;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Remove will-change after animation */
+.animate-float:not(:hover) {
+  will-change: auto;
+}
