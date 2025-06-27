@@ -1,13 +1,15 @@
 import { Box } from '@chakra-ui/react'
-import { ConversationSection } from '../components/sections/ConversationSection'
 import { InterviewTechSection } from '../components/sections/InterviewTechSection'
-import { ConversionOutputSection } from '../components/sections/ConversionOutputSection'
 import { CallToAction } from '../components/sections/CallToAction'
 import { Footer } from '../components/layout/Footer'
 import { HeroSection } from '../components/sections/HeroSection'
 import { AudioAnalysisSection } from '../components/sections/AudioAnalysisSection'
+import { USPSection } from '../components/sections/USPSection'
 import { UserTestimonialsSection } from '../components/sections/UserTestimonialsSection'
 import { FAQSection } from '../components/sections/FAQSection'
+import { InterviewIntelligenceSection } from '../components/sections/InterviewIntelligenceSection'
+import { BenefitsSection } from '../components/sections/BenefitsSection'
+import { SecuritySection } from '../components/sections/SecuritySection'
 
 export const Home = () => {
   return (
@@ -22,7 +24,12 @@ export const Home = () => {
 
       {/* Conversation Section */}
       <Box bg="gray.50" width="100%">
-        <ConversationSection />
+        <InterviewIntelligenceSection />
+      </Box>
+
+      {/* Benefits Section */}
+      <Box width="100%">
+        <BenefitsSection />
       </Box>
 
       {/* Audio Analysis Section */}
@@ -30,9 +37,14 @@ export const Home = () => {
         <AudioAnalysisSection />
       </Box>
 
-      {/* Conversion Output Section */}
+      {/* USP Section */}
+      <Box width="100%">
+        <USPSection />
+      </Box>
+
+      {/* Security Section - replaces ConversionOutputSection */}
       <Box bg="#F2F9FF" width="100%">
-        <ConversionOutputSection />
+        <SecuritySection />
       </Box>
 
       {/* User Testimonials Section */}
