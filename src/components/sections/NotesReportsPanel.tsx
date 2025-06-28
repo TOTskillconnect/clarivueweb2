@@ -78,7 +78,7 @@ const NotesReportsPanel = memo(() => {
         top={{ base: "20px", sm: "24px", md: "55px" }}
         left={{ base: "16px", sm: "20px", md: "65px" }}
         right={{ base: "16px", sm: "20px", md: "65px" }}
-        h={{ base: "calc(100% - 40px)", sm: "calc(100% - 48px)", md: "calc(100% - 75px)" }}
+        h={{ base: "calc(100% - 30px)", sm: "calc(100% - 35px)", md: "calc(100% - 65px)" }}
         bg="white"
         borderRadius={{ base: "12px", md: "16px" }}
         boxShadow="0 4px 20px rgba(0, 0, 0, 0.08)"

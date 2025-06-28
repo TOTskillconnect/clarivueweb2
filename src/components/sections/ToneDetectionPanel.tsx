@@ -72,7 +72,7 @@ const ToneDetectionPanel = memo(() => {
       w="100%"
       h={{ base: "420px", sm: "450px", md: "480px", lg: "535px" }}
       position="relative"
-      bg="#C2DD86"
+      bg="#74ab8c"
       borderRadius={{ base: "16px", md: "20px" }}
       overflow="hidden"
       boxShadow="0 8px 32px rgba(0, 0, 0, 0.1)"
@@ -105,7 +105,7 @@ const ToneDetectionPanel = memo(() => {
         top={{ base: "16px", sm: "20px", md: "40px" }}
         left={{ base: "12px", sm: "16px", md: "55px" }}
         right={{ base: "12px", sm: "16px", md: "55px" }}
-        bottom="0px"
+        bottom={{ base: "-12px", sm: "-16px", md: "-20px" }}
         bg="rgba(255, 255, 255, 0.15)"
         backdropFilter="blur(10px)"
         borderRadius={{ base: "12px", md: "16px" }}
@@ -119,11 +119,11 @@ const ToneDetectionPanel = memo(() => {
         top={{ base: "20px", sm: "24px", md: "55px" }}
         left={{ base: "16px", sm: "20px", md: "65px" }}
         right={{ base: "16px", sm: "20px", md: "65px" }}
-        h={{ base: "calc(100% - 40px)", sm: "calc(100% - 48px)", md: "calc(100% - 75px)" }}
+        h={{ base: "calc(100% - 30px)", sm: "calc(100% - 35px)", md: "calc(100% - 65px)" }}
         bg="white"
         borderRadius={{ base: "12px", md: "16px" }}
         boxShadow="0 4px 20px rgba(0, 0, 0, 0.08)"
-        p={{ base: "2.5", sm: "3", md: "4" }}
+        p={{ base: "1.5", sm: "2", md: "2.5" }}
         display="flex"
         flexDirection="column"
         initial={{ opacity: 0, y: 20 }}
@@ -133,44 +133,44 @@ const ToneDetectionPanel = memo(() => {
         overflow="hidden"
       >
         {/* Header */}
-        <VStack align="stretch" spacing="0" mb={{ base: "2", sm: "2.5", md: "3.5" }} flexShrink={0}>
-          <HStack justify="space-between" align="center" mb={{ base: "0.5", md: "1" }}>
+        <VStack align="stretch" spacing="0" mb={{ base: "1", sm: "1.5", md: "2" }} flexShrink={0}>
+          <HStack justify="space-between" align="center" mb={{ base: "0", md: "0.5" }}>
             <Heading size={{ base: "sm", sm: "md", md: "sm" }} color="#001223" fontFamily="Inter, sans-serif" fontWeight="600">
               TONE ANALYSIS
             </Heading>
-            <Icon as={FiActivity} color="#fe815d" boxSize={{ base: "5", sm: "6", md: "6" }} />
+            <Icon as={FiActivity} color="#fe815d" boxSize={{ base: "4", sm: "5", md: "5" }} />
           </HStack>
         </VStack>
 
         {/* Candidate Transcript Section - More compact */}
         <MotionBox
-          mb={{ base: "2", sm: "2.5", md: "3" }}
+          mb={{ base: "1", sm: "1.5", md: "2" }}
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           flexShrink={0}
         >
-          <HStack spacing={{ base: "2", sm: "2.5", md: "3.5" }} align="flex-start">
+          <HStack spacing={{ base: "1.5", sm: "2", md: "2.5" }} align="flex-start">
             {/* Waveform/Mic Icon on the left */}
             <Box
-              p={{ base: "1.5", sm: "2", md: "2.5" }}
+              p={{ base: "1", sm: "1.5", md: "2" }}
               bg="#fe815d"
               borderRadius="full"
               display="flex"
               alignItems="center"
               justifyContent="center"
-              minW={{ base: "7", sm: "8", md: "10" }}
-              h={{ base: "7", sm: "8", md: "10" }}
+              minW={{ base: "6", sm: "7", md: "8" }}
+              h={{ base: "6", sm: "7", md: "8" }}
               flexShrink={0}
             >
-              <Icon as={FiActivity} color="white" boxSize={{ base: "3", sm: "3.5", md: "3.5" }} />
+              <Icon as={FiActivity} color="white" boxSize={{ base: "2.5", sm: "3", md: "3" }} />
             </Box>
 
             {/* Chat Bubble Container */}
             <Box flex="1" position="relative" overflow="hidden">
               {/* User Info */}
-              <HStack spacing="1.5" mb={{ base: "0.5", sm: "1", md: "1.5" }}>
-                <Text fontSize={{ base: "xs", sm: "sm", md: "xs" }} fontWeight="600" color="gray.500">
+              <HStack spacing="1" mb={{ base: "0.5", sm: "-0.5", md: "0" }}>
+                <Text fontSize={{ base: "xs", sm: "xs", md: "xs" }} fontWeight="600" color="gray.500">
                   Rebecca · 12:51 PM
                 </Text>
               </HStack>
@@ -181,43 +181,43 @@ const ToneDetectionPanel = memo(() => {
                 bg="white"
                 border="1px solid"
                 borderColor="gray.200"
-                borderRadius={{ base: "10px", sm: "12px", md: "14px" }}
-                p={{ base: "2", sm: "2.5", md: "3" }}
+                borderRadius={{ base: "8px", sm: "10px", md: "12px" }}
+                p={{ base: "1", sm: "1.5", md: "2" }}
                 boxShadow="0 1px 8px rgba(0,0,0,0.1)"
                 overflow="hidden"
                 _before={{
                   content: '""',
                   position: "absolute",
                   left: "-7px",
-                  top: "15px",
+                  top: "10px",
                   width: "0",
                   height: "0",
-                  borderTop: "6px solid transparent",
-                  borderBottom: "6px solid transparent",
-                  borderRight: "6px solid #E5E7EB"
+                  borderTop: "5px solid transparent",
+                  borderBottom: "5px solid transparent",
+                  borderRight: "5px solid #E5E7EB"
                 }}
                 _after={{
                   content: '""',
                   position: "absolute",
                   left: "-6px",
-                  top: "16px",
+                  top: "11px",
                   width: "0",
                   height: "0",
-                  borderTop: "5px solid transparent",
-                  borderBottom: "5px solid transparent",
-                  borderRight: "5px solid white"
+                  borderTop: "4px solid transparent",
+                  borderBottom: "4px solid transparent",
+                  borderRight: "4px solid white"
                 }}
               >
                 <AnimatePresence>
                   <MotionText
-                    fontSize={{ base: "xs", sm: "sm", md: "xs" }}
+                    fontSize={{ base: "xs", sm: "xs", md: "xs" }}
                     color="gray.800"
-                    lineHeight="1.3"
+                    lineHeight="1.1"
                     key={displayText}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
-                    noOfLines={{ base: 2, sm: 3 }}
+                    noOfLines={{ base: 2, sm: 2 }}
                   >
                     "{displayText}"
                     {isTyping && (
@@ -234,10 +234,10 @@ const ToneDetectionPanel = memo(() => {
 
                 {/* Live indicator in bubble - More compact */}
                 {isTyping && (
-                  <HStack spacing="1" mt={{ base: "1", sm: "1.5", md: "1.5" }} justify="flex-end">
+                  <HStack spacing="0.5" mt={{ base: "0.5", sm: "0.5", md: "0.5" }} justify="flex-end">
                     <MotionBox
-                      w="1"
-                      h="1"
+                      w="0.5"
+                      h="0.5"
                       bg="green.500"
                       borderRadius="full"
                       animate={{
@@ -249,7 +249,7 @@ const ToneDetectionPanel = memo(() => {
                         ease: "easeInOut"
                       }}
                     />
-                    <Text fontSize={{ base: "xs", sm: "sm" }} color="gray.400" fontWeight="500">
+                    <Text fontSize={{ base: "xs", sm: "xs" }} color="gray.400" fontWeight="500">
                       Speaking...
                     </Text>
                   </HStack>
@@ -259,22 +259,23 @@ const ToneDetectionPanel = memo(() => {
           </HStack>
         </MotionBox>
 
-        {/* Confidence Indicator - Bar on mobile, dial on larger screens */}
-        <VStack spacing={{ base: "2", sm: "2.5", md: "3.5" }} flex="1" justify="center" align="center" overflow="hidden" minH="0">
+        {/* Confidence Indicator - Progress Bar across all screen sizes */}
+        <VStack spacing={{ base: "1", sm: "1.5", md: "2" }} flex="1" justify="center" align="center" overflow="visible" minH="0" position="relative" zIndex={10}>
           
-          {/* Mobile: Progress Bar */}
-          <Box display={{ base: "block", md: "none" }} w="100%" maxW="280px">
-            <VStack spacing="3" align="center">
+          {/* Progress Bar - All screen sizes */}
+          <Box w="100%" maxW={{ base: "280px", md: "320px", lg: "360px" }} position="relative" zIndex={15} overflow="visible">
+            <VStack spacing={{ base: "2", md: "2.5" }} align="center">
               {/* Progress Bar */}
-              <Box w="100%" position="relative">
+              <Box w="100%" position="relative" zIndex={20} overflow="visible" py={{ base: "2", md: "3" }}>
                 <Box
                   w="100%"
-                  h="12px"
+                  h={{ base: "10px", md: "14px", lg: "16px" }}
                   bg="gray.200"
-                  borderRadius="full"
+              borderRadius="full"
                   overflow="hidden"
                   position="relative"
-                >
+              boxShadow="0 2px 8px rgba(0,0,0,0.1)"
+            >
                   <MotionBox
                     key={confidenceLevel}
                     h="100%"
@@ -286,116 +287,34 @@ const ToneDetectionPanel = memo(() => {
                     }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                   />
-                </Box>
-                
-                {/* Percentage display above bar */}
-                <MotionBox
-                  position="absolute"
-                  left={`${confidenceLevel === 0 ? 25 : confidenceLevel === 1 ? 45 : 75}%`}
-                  top="-35px"
-                  transform="translateX(-50%)"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  key={confidenceLevel}
-                >
-                  <Box
-                    bg={currentState.color}
-                    color="white"
-                    px="2"
-                    py="1"
-                    borderRadius="6px"
-                    fontSize="sm"
-                    fontWeight="bold"
-                    position="relative"
-                    _after={{
-                      content: '""',
-                      position: "absolute",
-                      bottom: "-4px",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      width: "0",
-                      height: "0",
-                      borderLeft: "4px solid transparent",
-                      borderRight: "4px solid transparent",
-                      borderTop: `4px solid ${currentState.color}`
-                    }}
-                  >
-                    {confidenceLevel === 0 ? "25%" : confidenceLevel === 1 ? "45%" : "75%"}
-                  </Box>
-                </MotionBox>
-              </Box>
-
-              {/* Confidence Level Label */}
-              <MotionText
-                fontSize="md"
-                fontWeight="600"
-                color="#001223"
-                textAlign="center"
-                key={currentState.level}
-                initial={{ opacity: 0, y: 5 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {confidenceLevel === 0 ? "Rehearsed" : confidenceLevel === 1 ? "Authentic" : "Confident"}
-              </MotionText>
-            </VStack>
-          </Box>
-
-          {/* Desktop: Circular Dial */}
-          <Box display={{ base: "none", md: "flex" }} position="relative" alignItems="center" justifyContent="center">
-            {/* Background circle */}
-            <Circle
-              size="120px"
-              border="8px solid"
-              borderColor="gray.200"
-              position="relative"
-            />
-            
-            {/* Progress arc */}
-            <Box
-              position="absolute"
-              width="120px"
-              height="120px"
-              borderRadius="full"
-              sx={{
-                background: `conic-gradient(
-                  ${currentState.color} 0deg, 
-                  ${currentState.color} ${(confidenceLevel === 0 ? 25 : confidenceLevel === 1 ? 45 : 75) * 3.6}deg, 
-                  transparent ${(confidenceLevel === 0 ? 25 : confidenceLevel === 1 ? 45 : 75) * 3.6}deg
-                )`,
-                maskImage: `radial-gradient(circle, transparent 44px, black 44px)`
-              }}
-            />
-
-            {/* Inner content */}
-            <Box
-              position="absolute"
-              inset="0"
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              flexDirection="column"
-              bg="white"
-              borderRadius="full"
-              border="8px solid"
-              borderColor="white"
-              width="104px"
-              height="104px"
-              boxShadow="0 2px 8px rgba(0,0,0,0.1)"
-            >
-              <Text fontSize="2xl" fontWeight="bold" color={currentState.color} lineHeight="1">
-                {confidenceLevel === 0 ? "25%" : confidenceLevel === 1 ? "45%" : "75%"}
-              </Text>
-              <Text fontSize="xs" fontWeight="600" color="gray.600" textAlign="center" mt="0.5">
-                {currentState.level}
-              </Text>
             </Box>
           </Box>
 
-          {/* Status text and description - Shared between mobile and desktop */}
-          <VStack spacing={{ base: "1", sm: "1.5", md: "1.5" }} align="center" maxW="100%" px="2">
-            <Text fontSize={{ base: "xs", sm: "sm", md: "xs" }} color="gray.600" textAlign="center" mb={{ base: "0.5", md: "1" }}>
+              {/* Confidence Level Label */}
+            <MotionText
+                fontSize={{ base: "sm", md: "md" }}
+              fontWeight="600"
+              color="#001223"
+              textAlign="center"
+              key={currentState.level}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+                position="relative"
+                zIndex={20}
+                bg="white"
+                px="1"
+                borderRadius="md"
+                boxShadow="0 1px 4px rgba(0,0,0,0.1)"
+            >
+              {confidenceLevel === 0 ? "Rehearsed" : confidenceLevel === 1 ? "Authentic" : "Confident"}
+            </MotionText>
+            </VStack>
+          </Box>
+            
+          {/* Status text and description - Consistent across all sizes */}
+          <VStack spacing={{ base: "0.5", sm: "1", md: "1" }} align="center" maxW="100%" px="1">
+            <Text fontSize={{ base: "xs", sm: "xs", md: "sm" }} color="gray.600" textAlign="center" mb={{ base: "0", md: "0.5" }}>
               {confidenceLevel === 0 ? "Prepared responses detected" : 
                confidenceLevel === 1 ? "Natural conversation flow" : 
                "High confidence detected"}
@@ -408,15 +327,15 @@ const ToneDetectionPanel = memo(() => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.2 }}
               bg={currentState.bgColor}
-              borderRadius="10px"
-              px={{ base: "2.5", sm: "3", md: "4" }}
-              py={{ base: "1", sm: "1.5", md: "2" }}
+              borderRadius="8px"
+              px={{ base: "2", sm: "2.5", md: "3" }}
+              py={{ base: "0.5", sm: "1", md: "1.5" }}
               border="1px solid"
               borderColor={`${currentState.color}30`}
               maxW="100%"
               w="100%"
             >
-              <Text fontSize={{ base: "xs", sm: "sm" }} color="gray.700" textAlign="center" lineHeight="1.3" fontWeight="500">
+              <Text fontSize={{ base: "xs", sm: "xs", md: "sm" }} color="gray.700" textAlign="center" lineHeight="1.2" fontWeight="500">
                 {confidenceLevel === 0 ? 
                   "Using practiced answers. Ask follow-ups to explore deeper." :
                  confidenceLevel === 1 ? 
@@ -426,14 +345,14 @@ const ToneDetectionPanel = memo(() => {
               </Text>
             </MotionBox>
 
-            <HStack spacing="1.5" align="center" mt={{ base: "1", md: "1.5" }}>
+            <HStack spacing="1" align="center" mt={{ base: "0.5", md: "1" }}>
               <Box
-                w="1"
-                h="1"
+                w="0.5"
+                h="0.5"
                 bg="green.500"
                 borderRadius="full"
               />
-              <Text fontSize={{ base: "xs", sm: "sm" }} color="gray.500" fontWeight="600">
+              <Text fontSize={{ base: "xs", sm: "xs" }} color="gray.500" fontWeight="600">
                 LIVE ANALYSIS
               </Text>
             </HStack>

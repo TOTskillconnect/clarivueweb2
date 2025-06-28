@@ -1,8 +1,81 @@
 import React from 'react';
 import { Form, Input, Select, Radio, Button } from 'antd';
 import { CheckCircleOutlined, HeartOutlined, BarChartOutlined } from '@ant-design/icons';
+import { keyframes } from '@emotion/react';
+import { FAQSection } from '../components/sections/FAQSection';
+import { CallToAction } from '../components/sections/CallToAction';
 
 const { Option } = Select;
+
+// Morphing blob animations for the coral testimonial background
+const morphingBlob1 = keyframes`
+  0% { 
+    transform: translate(0px, 0px) scale(1); 
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  25% { 
+    transform: translate(-30px, 20px) scale(1.08); 
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  50% { 
+    transform: translate(15px, -25px) scale(0.95); 
+    border-radius: 50% 60% 30% 70% / 30% 40% 60% 50%;
+  }
+  75% { 
+    transform: translate(-10px, 30px) scale(1.03); 
+    border-radius: 70% 30% 60% 40% / 40% 70% 50% 30%;
+  }
+  100% { 
+    transform: translate(0px, 0px) scale(1); 
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+`
+
+const morphingBlob2 = keyframes`
+  0% { 
+    transform: translate(0px, 0px) scale(1); 
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 30%;
+  }
+  30% { 
+    transform: translate(25px, -15px) scale(0.92); 
+    border-radius: 60% 40% 30% 70% / 70% 30% 40% 60%;
+  }
+  60% { 
+    transform: translate(-20px, 35px) scale(1.12); 
+    border-radius: 30% 70% 40% 60% / 50% 40% 70% 30%;
+  }
+  85% { 
+    transform: translate(40px, -10px) scale(0.98); 
+    border-radius: 70% 30% 60% 40% / 30% 60% 50% 40%;
+  }
+  100% { 
+    transform: translate(0px, 0px) scale(1); 
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 30%;
+  }
+`
+
+const morphingBlob3 = keyframes`
+  0% { 
+    transform: translateX(-50%) translate(0px, 0px) scale(1); 
+    border-radius: 50% 50% 40% 60% / 30% 70% 60% 40%;
+  }
+  20% { 
+    transform: translateX(-50%) translate(-35px, 25px) scale(1.06); 
+    border-radius: 60% 40% 70% 30% / 60% 40% 30% 70%;
+  }
+  45% { 
+    transform: translateX(-50%) translate(20px, -30px) scale(0.89); 
+    border-radius: 40% 70% 30% 60% / 40% 60% 70% 30%;
+  }
+  70% { 
+    transform: translateX(-50%) translate(-15px, 40px) scale(1.15); 
+    border-radius: 70% 30% 60% 40% / 50% 30% 40% 70%;
+  }
+  100% { 
+    transform: translateX(-50%) translate(0px, 0px) scale(1); 
+    border-radius: 50% 50% 40% 60% / 30% 70% 60% 40%;
+  }
+`
 
 export default function BookDemo() {
   const [form] = Form.useForm();
@@ -21,7 +94,7 @@ export default function BookDemo() {
 
   const pageStyle = {
     minHeight: '100vh',
-    background: 'linear-gradient(135deg, #EBF4FF 0%, #C3DAFE 50%,rgb(81, 177, 247) 100%)',
+    background: 'white',
     padding: getResponsiveStyle('80px 12px 32px', '100px 16px 40px', '120px 16px 48px'),
     fontFamily: 'body'
   };
@@ -67,7 +140,7 @@ export default function BookDemo() {
   });
 
   const testimonialStyle: React.CSSProperties = {
-    background: '#0B1D42',
+    background: '#ff5c57',
     color: 'white',
     borderRadius: getResponsiveStyle('12px', '14px', '16px'),
     padding: getResponsiveStyle('24px 20px', '28px 22px', '32px 24px'),
@@ -155,6 +228,74 @@ export default function BookDemo() {
     };
   }, []);
 
+  // Coral testimonial background with animated blobs
+  const TestimonialBlobBackground = ({ children }: { children: React.ReactNode }) => (
+    <div style={{
+      position: 'relative',
+      background: '#001223',
+      borderRadius: getResponsiveStyle('12px', '14px', '16px'),
+      padding: getResponsiveStyle('24px 20px', '28px 22px', '32px 24px'),
+      overflow: 'hidden',
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: getResponsiveStyle('200px', '190px', '180px')
+    }}>
+      {/* Animated blobs */}
+      <div style={{
+        position: 'absolute',
+        top: '-22%',
+        left: '-25%',
+        width: '300px',
+        height: '300px',
+        backgroundImage: 'url("/clarivue-blob-1.png")',
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        opacity: 0.4,
+        zIndex: 1,
+        animation: `${morphingBlob1} 14s cubic-bezier(0.4, 0.0, 0.6, 1) infinite`
+      }} />
+      
+      <div style={{
+        position: 'absolute',
+        top: '25%',
+        right: '-20%',
+        width: '250px',
+        height: '250px',
+        rotate: '90deg',
+        backgroundImage: 'url("/clarivue-blob-22.png")',
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        opacity: 0.3,
+        zIndex: 1,
+        animation: `${morphingBlob2} 18s cubic-bezier(0.25, 0.1, 0.75, 0.9) infinite`,
+        animationDelay: '3s'
+      }} />
+      
+      <div style={{
+        position: 'absolute',
+        bottom: '-10%',
+        left: '15%',
+        width: '200px',
+        height: '200px',
+        backgroundImage: 'url("/clarivue-blob-3.png")',
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        opacity: 0.35,
+        zIndex: 1,
+        animation: `${morphingBlob3} 22s cubic-bezier(0.3, 0.0, 0.7, 1) infinite`,
+        animationDelay: '7s'
+      }} />
+      
+      {/* Content with higher z-index */}
+      <div style={{ position: 'relative', zIndex: 2, height: '100%', display: 'flex', flexDirection: 'column' }}>
+        {children}
+      </div>
+    </div>
+  );
+
   return (
     <div style={pageStyle}>
       <div style={containerStyle}>
@@ -177,7 +318,7 @@ export default function BookDemo() {
               
               <div>
                 <div style={valueItemStyle}>
-                  <div style={iconStyle('linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%)')}>
+                  <div style={iconStyle('linear-gradient(135deg, #ff5c57 0%, #ffb5b3 100%)')}>
                     ⏱️
                   </div>
                   <div>
@@ -200,7 +341,7 @@ export default function BookDemo() {
                 </div>
                 
                 <div style={valueItemStyle}>
-                  <div style={iconStyle('linear-gradient(135deg, #EC4899 0%, #BE185D 100%)')}>
+                  <div style={iconStyle('linear-gradient(135deg, #001223 0%, #5fb3d7 100%)')}>
                     👁️
                   </div>
                   <div>
@@ -223,7 +364,7 @@ export default function BookDemo() {
                 </div>
                 
                 <div style={valueItemStyle}>
-                  <div style={iconStyle('linear-gradient(135deg, #10B981 0%, #047857 100%)')}>
+                  <div style={iconStyle('linear-gradient(135deg, #efacd2 0%, #ebcdd1 100%)')}>
                     📊
                   </div>
                   <div>
@@ -248,7 +389,7 @@ export default function BookDemo() {
             </div>
 
             {/* Testimonial Card */}
-            <div style={testimonialStyle}>
+            <TestimonialBlobBackground>
               {/* Main image area - centered portrait without circular crop */}
               <div style={{ 
                 flex: 1,
@@ -314,7 +455,7 @@ export default function BookDemo() {
                   </div>
                 </div>
               </div>
-            </div>
+            </TestimonialBlobBackground>
           </div>
 
           {/* Right Section - Booking Form */}
@@ -356,16 +497,14 @@ export default function BookDemo() {
                   { type: 'email', message: 'Please enter a valid email' }
                 ]}
               >
-                <Select 
-                  placeholder="— Please select —" 
+                <Input 
+                  placeholder="Work email" 
                   style={{ 
                     borderRadius: getResponsiveStyle('6px', '7px', '8px'), 
-                    height: getResponsiveStyle('38px', '39px', '40px')
+                    height: getResponsiveStyle('38px', '39px', '40px'),
+                    fontSize: getResponsiveStyle('14px', '15px', '16px')
                   }}
-                >
-                  <Option value="work">Work Email</Option>
-                  <Option value="personal">Personal Email</Option>
-                </Select>
+                />
               </Form.Item>
 
               <Form.Item
@@ -453,29 +592,30 @@ export default function BookDemo() {
                   style={{
                     width: '100%',
                     height: getResponsiveStyle('44px', '46px', '48px'),
-                    background: 'linear-gradient(135deg, #1E2A78 0%, #5F9DF7 100%)',
+                    background: 'linear-gradient(135deg,rgb(250, 185, 159) 0%,rgb(251, 202, 248) 100%)',
                     border: 'none',
                     borderRadius: getResponsiveStyle('6px', '7px', '8px'),
                     fontSize: getResponsiveStyle('14px', '15px', '16px'),
                     fontWeight: '600',
-                    boxShadow: '0 4px 12px rgba(31, 42, 120, 0.3)',
-                    marginBottom: getResponsiveStyle('24px', '28px', '32px')
+                    boxShadow: '0 4px 12px rgba(255, 92, 87, 0.3)',
+                    marginBottom: getResponsiveStyle('24px', '28px', '32px'),
+                    color: '#001223'
                   }}
                 >
-                  Pick a time
+                  Submit Request
                 </Button>
                 
                 {/* Stats Bar */}
                 <div 
                   className="stats-grid"
                   style={{
-                    background: 'linear-gradient(135deg, #8BE6A8, #7AC4E8)',
+                    background: 'linear-gradient(135deg, #D5ECFF 0%, #ACBAFF 100%)',
                     borderRadius: getResponsiveStyle('10px', '11px', '12px'),
                     padding: getResponsiveStyle('14px', '15px', '16px'),
                     display: 'grid',
                     gridTemplateColumns: getResponsiveStyle('1fr', 'repeat(3, 1fr)', 'repeat(3, 1fr)'),
                     gap: getResponsiveStyle('12px', '14px', '16px'),
-                    color: '#2D3748'
+                    color: '#001223'
                   }}
                 >
                   <div style={{ textAlign: 'center' }}>
@@ -551,6 +691,12 @@ export default function BookDemo() {
             </Form>
           </div>
         </div>
+
+        {/* FAQ section */}
+        <FAQSection />
+
+        {/* Call to Action section */}
+        <CallToAction />
       </div>
     </div>
   );

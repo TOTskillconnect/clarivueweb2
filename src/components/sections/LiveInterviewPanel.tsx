@@ -89,7 +89,7 @@ const LiveInterviewPanel = memo(() => {
         top={{ base: "16px", sm: "20px", md: "40px" }}
         left={{ base: "12px", sm: "16px", md: "55px" }}
         right={{ base: "12px", sm: "16px", md: "55px" }}
-        bottom="0px"
+        bottom={{ base: "-10px", sm: "-15px", md: "-20px" }}
         bg="rgba(255, 255, 255, 0.15)"
         backdropFilter="blur(10px)"
         borderRadius={{ base: "12px", md: "16px" }}
@@ -100,10 +100,10 @@ const LiveInterviewPanel = memo(() => {
       {/* Main UI Card - Proper height calculation with bottom margin */}
       <MotionBox
         position="absolute"
-        top={{ base: "20px", sm: "24px", md: "65px" }}
+        top={{ base: "20px", sm: "24px", md: "55px" }}
         left={{ base: "16px", sm: "20px", md: "65px" }}
         right={{ base: "16px", sm: "20px", md: "65px" }}
-        h={{ base: "calc(100% - 40px)", sm: "calc(100% - 48px)", md: "calc(100% - 85px)" }}
+        h={{ base: "calc(100% - 30px)", sm: "calc(100% - 35px)", md: "calc(100% - 65px)" }}
         bg="white"
         borderRadius={{ base: "12px", md: "16px" }}
         boxShadow="0 4px 20px rgba(0, 0, 0, 0.08)"
@@ -135,19 +135,19 @@ const LiveInterviewPanel = memo(() => {
               </HStack>
             </Badge>
           </HStack>
-          <Text fontSize={{ base: "xs", sm: "sm", md: "xs" }} color="gray.600" fontFamily="Inter, sans-serif" lineHeight="1.3">
+          <Text fontSize={{ base: "xs", sm: "sm", md: "xs" }} color="gray.600" fontFamily="Inter, sans-serif" lineHeight="0.8">
             Real time assistance with supreme intelligence
           </Text>
         </VStack>
 
         {/* Content Sections - More compact spacing */}
-        <VStack align="stretch" spacing={{ base: "1.5", sm: "2", md: "2.5" }} flex="1" overflow="hidden" minH="0">
+        <VStack align="stretch" spacing={{ base: "1", sm: "1.5", md: "2" }} flex="1" overflow="hidden" minH="0">
           {sectionContent.map((section, index) => (
             <MotionBox
               key={index}
               bg={section.bgColor}
-              p={{ base: "1.5", sm: "2", md: "2" }}
-              borderRadius={{ base: "8px", md: "6px" }}
+              p={{ base: "1", sm: "1.4", md: "1.4" }}
+              borderRadius={{ base: "6px", md: "4px" }}
               border="2px solid"
               borderColor={activeSection === index ? section.iconColor : section.borderColor}
               boxShadow={activeSection === index ? `0 0 0 2px ${section.iconColor}20` : "none"}
@@ -165,11 +165,11 @@ const LiveInterviewPanel = memo(() => {
               }}
               flexShrink={0}
             >
-              <HStack spacing={{ base: "1.5", sm: "2", md: "2" }} align="flex-start">
+              <HStack spacing={{ base: "1", sm: "1.4", md: "1.4" }} align="flex-start">
                 <Icon 
                   as={section.icon} 
                   color={activeSection === index ? section.iconColor : "gray.400"} 
-                  boxSize={{ base: "4.5", sm: "5", md: "9" }}
+                  boxSize={{ base: "3.2", sm: "3.5", md: "6.3" }}
                   mt="0.5"
                   transition="color 0.3s ease"
                   flexShrink={0}
@@ -177,18 +177,18 @@ const LiveInterviewPanel = memo(() => {
                 <VStack align="start" spacing="0" flex="1" overflow="hidden">
                   <Text 
                     fontWeight="600" 
-                    fontSize={{ base: "xs", sm: "sm", md: "xs" }}
+                    fontSize={{ base: "xs", sm: "xs", md: "xs" }}
                     color={activeSection === index ? "#001223" : "gray.500"}
-                    lineHeight="1.2"
+                    lineHeight="1.1"
                     transition="color 0.3s ease"
                     noOfLines={1}
                   >
                     {section.title}
                   </Text>
                   <Text 
-                    fontSize={{ base: "xs", sm: "sm", md: "xs" }}
+                    fontSize={{ base: "xs", sm: "xs", md: "xs" }}
                     color={activeSection === index ? "gray.700" : "gray.400"}
-                    lineHeight="1.2" 
+                    lineHeight="1.1" 
                     fontStyle="italic"
                     transition="color 0.3s ease"
                     noOfLines={1}

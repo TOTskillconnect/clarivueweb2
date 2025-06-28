@@ -4,9 +4,9 @@ export const Logo = () => {
   return (
     <Link href="/" _hover={{ textDecoration: 'none' }}>
       <Image
-        src="/logo-transparent.png"
+        src="/brandassets/clarivue-logo.png"
         alt="Clarivue"
-        h="32px"
+        h="40px"
         objectFit="contain"
         fallback={
           <Box

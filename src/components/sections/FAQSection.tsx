@@ -17,7 +17,7 @@ export const FAQSection = () => {
     <Box 
       as="section"
       py={{ base: 10, md: 12, lg: 16 }} 
-      bg="#F2F9FF"
+      bg="white"
       role="region"
       aria-labelledby="faq-heading"
     >
@@ -64,7 +64,7 @@ export const FAQSection = () => {
               left={{ base: -2, md: -3, lg: -4 }}
               right={{ base: -2, md: -3, lg: -4 }}
               bottom={{ base: -2, md: -3, lg: -4 }}
-              background="linear-gradient(45deg, #98F2B3, #87CEEB, #98F2B3, #87CEEB)"
+              background="linear-gradient(135deg,rgb(249, 162, 159) 0%,rgb(159, 206, 247) 50%, #c2ff3d 100%)"
               backgroundSize="400% 400%"
               borderRadius={{ base: "16px", md: "20px", lg: "24px" }}
               animation={{
@@ -85,7 +85,7 @@ export const FAQSection = () => {
                 left: { base: '2px', md: '3px' },
                 right: { base: '2px', md: '3px' },
                 bottom: { base: '2px', md: '3px' },
-                backgroundColor: '#F2F9FF',
+                backgroundColor: 'white',
                 borderRadius: { base: '14px', md: '17px', lg: '21px' },
                 zIndex: 1,
               }}

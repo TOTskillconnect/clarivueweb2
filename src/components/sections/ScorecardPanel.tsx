@@ -309,10 +309,10 @@ const ScorecardPanel = memo(() => {
             <AnimatePresence>
               {showScores && (
                 <MotionBox
-                  w={{ base: "0", md: "60px" }}
+                  w={{ base: "0", md: "70px" }}
                   ml={{ base: "0", md: "2" }}
                   initial={{ opacity: 0, x: 30, width: 0 }}
-                  animate={{ opacity: 1, x: 0, width: "60px" }}
+                  animate={{ opacity: 1, x: 0, width: "70px" }}
                   exit={{ opacity: 0, x: 30, width: 0 }}
                   transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
                   display={{ base: "none", md: "flex" }}
@@ -322,7 +322,7 @@ const ScorecardPanel = memo(() => {
                   h="100%"
                   flexShrink={0}
                 >
-                  <VStack spacing={{ base: "2", md: "3" }} justify="center" h="100%">
+                  <VStack spacing={{ base: "2", md: "6" }} justify="center" h="100%">
                     {evaluations.map((evaluation, index) => (
                       <motion.div
                         key={evaluation.title}
@@ -331,22 +331,19 @@ const ScorecardPanel = memo(() => {
                         transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
                       >
                         <VStack 
-                          spacing="0" 
+                          spacing="0.5" 
                           align="center"
                           bg="rgba(59, 130, 246, 0.1)"
                           border="2px solid"
                           borderColor="#3B82F6"
-                          borderRadius="4px"
-                          p="1"
-                          w="8"
-                          h="8"
+                          borderRadius="6px"
+                          p="1.5"
+                          w="12"
+                          h="12"
                           justify="center"
                           position="relative"
                         >
-                          <Text fontSize="3xs" fontWeight="500" color="#6B7280" lineHeight="1">
-                            Score
-                          </Text>
-                          <Text fontSize="xs" fontWeight="bold" color="#1F2937" lineHeight="1">
+                          <Text fontSize="sm" fontWeight="bold" color="#1F2937" lineHeight="1" textAlign="center">
                             {evaluation.score}
                           </Text>
                           
@@ -356,7 +353,7 @@ const ScorecardPanel = memo(() => {
                             right="100%"
                             top="50%"
                             transform="translateY(-50%)"
-                            w="8px"
+                            w="10px"
                             h="1px"
                             bg="#D1D5DB"
                           />

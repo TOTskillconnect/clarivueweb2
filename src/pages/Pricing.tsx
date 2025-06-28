@@ -1,19 +1,9 @@
 import React from 'react';
 import { Button } from 'antd';
 import { CheckOutlined } from '@ant-design/icons';
-
-// Logo data for trusted brands section
-const LOGO_DATA = [
-  { src: "/brandsocials/KaiOS-Logo.wine.svg", alt: "KaiOS" },
-  { src: "/brandsocials/Libra-Logo.wine.svg", alt: "Libra" },
-  { src: "/brandsocials/Fitbit-Logo.wine.svg", alt: "Fitbit" },
-  { src: "/brandsocials/OnePlus-Logo.wine.svg", alt: "OnePlus" },
-  { src: "/brandsocials/Foxtel-Logo.wine.svg", alt: "Foxtel" },
-  { src: "/brandsocials/square-logo.wine.svg", alt: "Square" },
-  { src: "/brandsocials/plaidlogo.wine.svg", alt: "Plaid" },
-  { src: "/brandsocials/nest-labs-logo-svgrepo-com.svg", alt: "Nest Labs" },
-  { src: "/brandsocials/brex-1.svg", alt: "Brex" }
-] as const;
+import { TrustedBySection } from '../components/sections/TrustedBySection';
+import { FAQSection } from '../components/sections/FAQSection';
+import { CallToAction } from '../components/sections/CallToAction';
 
 export default function Pricing() {
   // Responsive helper function
@@ -25,7 +15,7 @@ export default function Pricing() {
 
   const pageStyle = {
     minHeight: '100vh',
-    background: 'linear-gradient(135deg, #EBF4FF 0%, #C3DAFE 50%,rgb(81, 177, 247) 100%)',
+    background: 'white',
     padding: getResponsiveStyle('80px 12px 32px', '100px 16px 40px', '120px 16px 48px'),
     fontFamily: 'body'
   };
@@ -64,9 +54,9 @@ export default function Pricing() {
   const popularCardStyle = {
     ...cardStyle,
     border: getResponsiveStyle(
-      '2px solid rgba(139, 230, 168, 0.8)',
-      '2.5px solid rgba(139, 230, 168, 0.8)',
-      '3px solid rgba(139, 230, 168, 0.8)'
+      '2px solid #ff5c57',
+      '2.5px solid #ff5c57',
+      '3px solid #ff5c57'
     ),
     transform: getResponsiveStyle(
       'scale(1.02) translateY(-4px)',
@@ -75,19 +65,19 @@ export default function Pricing() {
     ),
     boxShadow: getResponsiveStyle(
       `0 15px 30px rgba(0, 0, 0, 0.12),
-       0 6px 15px rgba(139, 230, 168, 0.2),
+       0 6px 15px rgba(255, 92, 87, 0.2),
        inset 0 1px 0 rgba(255, 255, 255, 0.8),
        inset 0 -1px 0 rgba(0, 0, 0, 0.1)`,
       `0 18px 35px rgba(0, 0, 0, 0.13),
-       0 7px 18px rgba(139, 230, 168, 0.2),
+       0 7px 18px rgba(255, 92, 87, 0.2),
        inset 0 1px 0 rgba(255, 255, 255, 0.8),
        inset 0 -1px 0 rgba(0, 0, 0, 0.1)`,
       `0 20px 40px rgba(0, 0, 0, 0.15),
-       0 8px 20px rgba(139, 230, 168, 0.2),
+       0 8px 20px rgba(255, 92, 87, 0.2),
        inset 0 1px 0 rgba(255, 255, 255, 0.8),
        inset 0 -1px 0 rgba(0, 0, 0, 0.1)`
     ),
-    background: `linear-gradient(145deg, #ffffff 0%, #f8fcff 100%)`,
+    background: `linear-gradient(145deg, #ffffff 0%, #fff8f8 100%)`,
     position: 'relative' as const,
     zIndex: 10
   };
@@ -97,7 +87,7 @@ export default function Pricing() {
     top: getResponsiveStyle('-10px', '-11px', '-12px'),
     left: '50%',
     transform: 'translateX(-50%)',
-    background: "linear-gradient(135deg, #8BE6A8, #7AC4E8)",
+    background: "linear-gradient(135deg,rgb(250, 185, 159) 0%,rgb(251, 202, 248) 100%)",
     color: '#1F2937',
     padding: getResponsiveStyle('4px 12px', '5px 14px', '6px 16px'),
     borderRadius: getResponsiveStyle('16px', '18px', '20px'),
@@ -106,7 +96,7 @@ export default function Pricing() {
     textTransform: 'uppercase' as const,
     letterSpacing: '0.5px',
     overflow: 'hidden',
-    boxShadow: '0 4px 12px rgba(81, 177, 247, 0.3)',
+    boxShadow: '0 4px 12px rgba(255, 92, 87, 0.3)',
     animation: 'gleam 3s ease-in-out infinite'
   };
 
@@ -137,10 +127,10 @@ export default function Pricing() {
 
   const primaryButtonStyle = {
     ...buttonStyle,
-    background: "linear-gradient(135deg, #8BE6A8, #7AC4E8)",
+    background: "linear-gradient(135deg,rgb(250, 185, 159) 0%,rgb(251, 202, 248) 100%)",
     border: 'none',
-    color: 'white',
-    boxShadow: '0 4px 12px rgba(31, 42, 120, 0.3)'
+    color: '#001223',
+    boxShadow: '0 4px 12px rgba(255, 92, 87, 0.3)'
   };
 
   const secondaryButtonStyle = {
@@ -148,60 +138,6 @@ export default function Pricing() {
     background: 'transparent',
     border: '2px solidrgb(6, 77, 159)',
     color: '#1E2A78'
-  };
-
-  // Trust section styles
-  const trustSectionStyle = {
-    padding: getResponsiveStyle('32px 12px', '40px 16px', '48px 16px'),
-    textAlign: 'center' as const,
-    marginTop: getResponsiveStyle('4px', '6px', '8px')
-  };
-
-  const trustTitleStyle = {
-    fontSize: getResponsiveStyle('16px', '17px', '18px'),
-    fontWeight: '600',
-    color: '#1F2937',
-    marginBottom: getResponsiveStyle('24px', '28px', '32px'),
-    lineHeight: '1.2',
-    padding: getResponsiveStyle('0 8px', '0 12px', '0')
-  };
-
-  const logoGridStyle = {
-    display: 'flex',
-    flexDirection: 'column' as const,
-    gap: getResponsiveStyle('6px', '7px', '8px'),
-    maxWidth: getResponsiveStyle('100%', '600px', '1000px'),
-    margin: '0 auto',
-    alignItems: 'center'
-  };
-
-  const logoRowStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: getResponsiveStyle('12px', '18px', '24px'),
-    width: '100%',
-    flexWrap: 'wrap' as const
-  };
-
-  const logoItemStyle = {
-    height: getResponsiveStyle('40px', '48px', '56px'),
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    minWidth: getResponsiveStyle('80px', '110px', '140px'),
-    flex: getResponsiveStyle('1 1 80px', '0 0 auto', '0 0 auto')
-  };
-
-  const logoImageStyle = {
-    height: '100%',
-    width: '100%',
-    maxWidth: getResponsiveStyle('60px', '80px', '98px'),
-    maxHeight: getResponsiveStyle('28px', '35px', '42px'),
-    objectFit: 'contain' as const,
-    filter: 'brightness(0) saturate(100%) invert(26%) sepia(89%) saturate(1583%) hue-rotate(204deg) brightness(97%) contrast(105%)',
-    opacity: 0.8,
-    transition: 'all 0.3s ease'
   };
 
   const keyframesCSS = `
@@ -226,11 +162,6 @@ export default function Pricing() {
       .popular-card {
         transform: scale(1.02) translateY(-2px) !important;
         margin: 8px 0 !important;
-      }
-      
-      .logo-row {
-        flex-wrap: wrap !important;
-        gap: 8px !important;
       }
     }
 
@@ -373,14 +304,14 @@ export default function Pricing() {
                 color: '#6B7280', 
                 marginLeft: '4px' 
               }}>
-                per seat/month
+                per seat/month (billed annually)
               </span>
               <div style={{ 
                 fontSize: getResponsiveStyle('12px', '13px', '14px'), 
                 color: '#6B7280', 
                 marginTop: '4px' 
               }}>
-                billed annually ($49 billed monthly)
+                $49 billed monthly
               </div>
             </div>
 
@@ -496,55 +427,14 @@ export default function Pricing() {
           </div>
         </div>
 
-        {/* Trust Section - Brand Logos */}
-        <div style={trustSectionStyle}>
-          <text style={trustTitleStyle}>
-            Empowering hiring teams of all sizes to act more swiftly and hire with assurance.
-          </text>
-          <div style={logoGridStyle}>
-            {/* First Row - 5 logos */}
-            <div style={logoRowStyle} className="logo-row">
-              {LOGO_DATA.slice(0, 5).map((logo, index) => (
-                <div key={`${logo.alt}-${index}`} style={logoItemStyle}>
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    style={logoImageStyle}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.opacity = '1';
-                      e.currentTarget.style.transform = 'scale(1.05)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.opacity = '0.8';
-                      e.currentTarget.style.transform = 'scale(1)';
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-            
-            {/* Second Row - 4 logos (centered) */}
-            <div style={logoRowStyle} className="logo-row">
-              {LOGO_DATA.slice(5, 9).map((logo, index) => (
-                <div key={`${logo.alt}-${index + 5}`} style={logoItemStyle}>
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    style={logoImageStyle}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.opacity = '1';
-                      e.currentTarget.style.transform = 'scale(1.05)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.opacity = '0.8';
-                      e.currentTarget.style.transform = 'scale(1)';
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        {/* Trusted by section */}
+        <TrustedBySection />
+
+        {/* FAQ section */}
+        <FAQSection />
+
+        {/* Call to Action section */}
+        <CallToAction />
       </div>
     </div>
   );

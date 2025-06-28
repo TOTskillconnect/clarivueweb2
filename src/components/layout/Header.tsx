@@ -38,6 +38,18 @@ export const Header = () => {
     onClose(); // Close mobile menu after navigation
   };
 
+  const handleBookDemoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/book-demo');
+    onClose(); // Close mobile menu after navigation
+  };
+
+  const handleHomeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/');
+    onClose(); // Close mobile menu after navigation
+  };
+
   const MobileNavLink = ({ href, onClick, children }: { href: string; onClick?: (e: React.MouseEvent) => void; children: string }) => (
     <Link
       href={href}
@@ -74,14 +86,30 @@ export const Header = () => {
           mx={{ base: 0, md: 4 }}
         >
           <HStack justify="space-between" align="center" spacing={{ base: 2, md: 4 }}>
-            <Box flex="0 0 auto">
+            <Box flex="0 0 auto" cursor="pointer" onClick={handleHomeClick}>
               <Logo />
             </Box>
             
             {/* Desktop Navigation */}
             <HStack spacing={8} flex="1" justify="center" display={{ base: 'none', md: 'flex' }}>
-              <Link fontSize="18px" color="gray.600" _hover={{ color: '#001223' }}>Features</Link>
-              <Link fontSize="18px" color="gray.600" _hover={{ color: '#001223' }}>Pricing</Link>
+              <Link 
+                fontSize="18px" 
+                color="gray.600" 
+                _hover={{ color: '#001223' }}
+                onClick={scrollToFeatures}
+                cursor="pointer"
+              >
+                Features
+              </Link>
+              <Link 
+                fontSize="18px" 
+                color="gray.600" 
+                _hover={{ color: '#001223' }}
+                onClick={handlePricingClick}
+                cursor="pointer"
+              >
+                Pricing
+              </Link>
               <Link fontSize="18px" color="gray.600" _hover={{ color: '#001223' }}>Resources</Link>
             </HStack>
 
@@ -96,6 +124,7 @@ export const Header = () => {
                 px={6}
                 py={3}
                 _hover={{ bg: '#ff5c57' }}
+                onClick={handleBookDemoClick}
               >
                 Try Free
               </Button>
@@ -104,15 +133,16 @@ export const Header = () => {
             {/* Mobile CTA Button */}
             <Button
               bg="#001223"
-              color="gray.800"
+              color="white"
               borderRadius="12px"
               fontSize="12px"
               px={3}
               py={1.5}
               h="32px"
               _hover={{ bg: '#ff5c57' }}
-              display="none"
+              display={{ base: 'flex', md: 'none' }}
               mr={1}
+              onClick={handleBookDemoClick}
             >
               Try Free
             </Button>
@@ -138,7 +168,9 @@ export const Header = () => {
         <DrawerContent bg="white">
           <DrawerCloseButton size="lg" color="gray.600" />
           <DrawerHeader borderBottomWidth="1px" py={6}>
-            <Logo />
+            <Box cursor="pointer" onClick={handleHomeClick}>
+              <Logo />
+            </Box>
           </DrawerHeader>
 
           <DrawerBody py={8} display="flex" flexDirection="column" alignItems="center" justifyContent="center">
@@ -146,7 +178,7 @@ export const Header = () => {
               <MobileNavLink href="#features" onClick={scrollToFeatures}>
                 Features
               </MobileNavLink>
-              <MobileNavLink href="#pricing" onClick={handlePricingClick}>
+              <MobileNavLink href="/pricing" onClick={handlePricingClick}>
                 Pricing
               </MobileNavLink>
               <MobileNavLink href="#resources" onClick={onClose}>
@@ -174,7 +206,7 @@ export const Header = () => {
                     height="48px"
                     width="100%"
                     _hover={{ bg: 'primary.100' }}
-                    onClick={onClose}
+                    onClick={handleBookDemoClick}
                     whiteSpace="nowrap"
                   >
                     Try Free

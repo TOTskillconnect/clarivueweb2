@@ -111,9 +111,7 @@ BrandLogos.displayName = 'BrandLogos';
 
 export const TrustedBySection = memo(() => {
   const sectionStyle = useMemo(() => ({
-    bg: "#F2F9FF",
-    borderTop: "1px solid",
-    borderColor: "gray.200",
+    bg: "white",
     width: "100%",
     position: "relative" as const
   }), []);
